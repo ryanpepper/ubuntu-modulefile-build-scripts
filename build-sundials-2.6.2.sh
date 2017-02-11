@@ -1,4 +1,6 @@
-rm -rf sundials-2.6.2.tar.gz sundials-2.6.2 sundials-2.6.2-src
+#!/bin/bash
+
+rm -rf sundials-2.6.2 sundials-2.6.2-src
 if [ ! -f "sundials-2.6.2.tar.gz" ]; then wget http://computation.llnl.gov/projects/sundials/download/sundials-2.6.2.tar.gz;fi
 tar -xvf sundials-2.6.2.tar.gz
 mv sundials-2.6.2 sundials-2.6.2-src
@@ -10,3 +12,5 @@ sudo cmake -DBUILD_STATIC_LIBS=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=
 
 make
 make install
+cd ../..
+rm -rf sundials-2.6.2-src
